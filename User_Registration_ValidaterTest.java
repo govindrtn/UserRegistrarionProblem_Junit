@@ -79,6 +79,7 @@ public class User_Registration_ValidaterTest {
 		boolean result = userRegistration.passwordValidater("govindm");
 		Assert.assertEquals(false, result);
 	}
+
 	// password rule 2
 	@Test
 	public void given_Password_is_Proper_rule_2_true() {
@@ -93,20 +94,35 @@ public class User_Registration_ValidaterTest {
 		boolean result = userRegistration.passwordValidater("govindma");
 		Assert.assertEquals(false, result);
 	}
-	
-	// password rule 3
-		@Test
-		public void given_Password_is_Proper_rule_3_true() {
-			User_Registration_Validater userRegistration = new User_Registration_Validater();
-			boolean result = userRegistration.passwordValidater("Govindma1");
-			Assert.assertEquals(true, result);
-		}
 
-		@Test
-		public void given_Password_is_not_Proper_rule_3_false() {
-			User_Registration_Validater userRegistration = new User_Registration_Validater();
-			boolean result = userRegistration.passwordValidater("govindma33");
-			Assert.assertEquals(false, result);
-		}
+	// password rule 3
+	@Test
+	public void given_Password_is_Proper_rule_3_true() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("Govindma1");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void given_Password_is_not_Proper_rule_3_false() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("govindma33");
+		Assert.assertEquals(false, result);
+	}
+
+	// password rule 4
+	@Test
+	public void given_Password_is_Proper_rule_4_true() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("Govindma1$");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void given_Password_is_not_Proper_rule_4_false() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("govindma3$");
+		Assert.assertEquals(false, result);
+	}
 
 }
