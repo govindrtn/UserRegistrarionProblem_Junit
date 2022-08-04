@@ -49,4 +49,19 @@ public class User_Registration_ValidaterTest {
 		Assert.assertEquals(false, result);
 	}
 
+	// Phone Number
+	@Test
+	public void given_Phone_Number_is_Proper_true() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.phoneValidater("91 8602443523");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void given_Phone_Number_is_not_Proper_false() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.phoneValidater("911 8602443523");
+		Assert.assertEquals(false, result);
+	}
+
 }
