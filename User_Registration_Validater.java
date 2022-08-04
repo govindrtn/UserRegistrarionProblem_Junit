@@ -7,7 +7,7 @@ public class User_Registration_Validater {
 	private static final String Name_Pattern = "^[A-Z]{1}[a-z]{2,}$";
 	private static final String Email_Pattern = "^[a-z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
 	private static final String Phone_Pattern = "^[0-9]{2}[ ][0-9]{10}";
-	private static final String Password_Pattern = "[a-z]{8,40}";
+	private static final String Password_Pattern = "^(?=.*[A-Z])(?=.*[a-z]{7}).*";
 
 	public static boolean firstNameValidater(String firstName) {
 		Pattern pattern = Pattern.compile(Name_Pattern);
@@ -29,7 +29,7 @@ public class User_Registration_Validater {
 		return pattern.matcher(phone).matches();
 	}
 	
-	//Rule 1
+	
 	public static boolean passwordValidater(String password) {
 		Pattern pattern = Pattern.compile(Password_Pattern);
 		return pattern.matcher(password).matches();
@@ -56,8 +56,8 @@ public class User_Registration_Validater {
 		System.out.println(phoneValidater("912 8633444345")); // mot proper
 		
 		System.out.println("Password-----");
-		System.out.println(passwordValidater("govindma")); // proper
-		System.out.println(passwordValidater("govindm")); // not proper
+		System.out.println(passwordValidater("Govindma")); // proper
+		System.out.println(passwordValidater("govindma")); // not proper
 
 		
 		
