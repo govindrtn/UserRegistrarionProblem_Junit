@@ -23,7 +23,7 @@ public class User_Registration_ValidaterTest {
 	@Test
 	public void givenLastName_is_Proper_True() {
 		User_Registration_Validater userRegistration = new User_Registration_Validater();
-		boolean result = userRegistration.lastNameValidater("Maithil");
+		boolean result = User_Registration_Validater.lastNameValidater("Maithil");
 		Assert.assertEquals(true, result);
 	}
 
@@ -31,6 +31,21 @@ public class User_Registration_ValidaterTest {
 	public void givenLastName_is_not_Proper_false() {
 		User_Registration_Validater userRegistration = new User_Registration_Validater();
 		boolean result = userRegistration.lastNameValidater("maithil");
+		Assert.assertEquals(false, result);
+	}
+
+	// email
+	@Test
+	public void given_Email_is_Proper_true() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.emailValidater("govindmaithil@bridgelabz.com");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void given_Email_is_not_Proper_false() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.emailValidater("Govindmaithil@bridgelabz.com");
 		Assert.assertEquals(false, result);
 	}
 
