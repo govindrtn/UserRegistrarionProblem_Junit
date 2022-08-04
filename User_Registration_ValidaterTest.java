@@ -65,7 +65,7 @@ public class User_Registration_ValidaterTest {
 		Assert.assertEquals(false, result);
 	}
 
-	// password
+	// password rule 1
 	@Test
 	public void given_Password_is_Proper_true() {
 		User_Registration_Validater userRegistration = new User_Registration_Validater();
@@ -77,6 +77,20 @@ public class User_Registration_ValidaterTest {
 	public void given_Password_is_not_Proper_false() {
 		User_Registration_Validater userRegistration = new User_Registration_Validater();
 		boolean result = userRegistration.passwordValidater("govindm");
+		Assert.assertEquals(false, result);
+	}
+	// password rule 2
+	@Test
+	public void given_Password_is_Proper_rule_2_true() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("Govindma");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void given_Password_is_not_Proper_rule_2_false() {
+		User_Registration_Validater userRegistration = new User_Registration_Validater();
+		boolean result = userRegistration.passwordValidater("govindma");
 		Assert.assertEquals(false, result);
 	}
 
