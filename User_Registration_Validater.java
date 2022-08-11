@@ -9,33 +9,53 @@ public class User_Registration_Validater {
 	private static final String Phone_Pattern = "^[0-9]{2}[ ][0-9]{10}";
 	private static final String Password_Pattern = "^(?=.*[A-Z])(?=.*[a-z]{7,})(?=.*[0-9])(?=.*[!@#%^$*]).*$";
 
-	public static boolean firstNameValidater(String firstName) {
-		Pattern pattern = Pattern.compile(Name_Pattern);
-		return pattern.matcher(firstName).matches();
+	public static boolean firstNameValidater(String firstName ) throws InvalidUserException {
+		try {
+			Pattern pattern = Pattern.compile(Name_Pattern);
+			return pattern.matcher(firstName).matches();
+		} catch (NullPointerException e) {
+			throw new InvalidUserException("Please enter valid input:  ");
+		}
 	}
 
-	public static boolean lastNameValidater(String lastName) {
-		Pattern pattern = Pattern.compile(Name_Pattern);
-		return pattern.matcher(lastName).matches();
+	public static boolean lastNameValidater(String lastName) throws InvalidUserException {
+		try {
+			Pattern pattern = Pattern.compile(Name_Pattern);
+			return pattern.matcher(lastName).matches();
+		} catch (NullPointerException e) {
+			throw new InvalidUserException("Please enter valid input:  ");
+		}
+
 	}
 
-	public static boolean emailValidater(String email) {
-		Pattern pattern = Pattern.compile(Email_Pattern);
-		return pattern.matcher(email).matches();
+	public static boolean emailValidater(String email) throws InvalidUserException {
+		try {
+			Pattern pattern = Pattern.compile(Email_Pattern);
+			return pattern.matcher(email).matches();
+		} catch (NullPointerException e) {
+			throw new InvalidUserException("Please enter valid input:  ");
+		}
 	}
 
-	public static boolean phoneValidater(String phone) {
-		Pattern pattern = Pattern.compile(Phone_Pattern);
-		return pattern.matcher(phone).matches();
-	}
-	
-	
-	public static boolean passwordValidater(String password) {
-		Pattern pattern = Pattern.compile(Password_Pattern);
-		return pattern.matcher(password).matches();
+	public static boolean phoneValidater(String phone) throws InvalidUserException {
+		try {
+			Pattern pattern = Pattern.compile(Phone_Pattern);
+			return pattern.matcher(phone).matches();
+		} catch (NullPointerException e) {
+			throw new InvalidUserException("Please enter valid input:  ");
+		}
 	}
 
-	public static void main(String[] args) {
+	public static boolean passwordValidater(String password) throws InvalidUserException {
+		try {
+			Pattern pattern = Pattern.compile(Password_Pattern);
+			return pattern.matcher(password).matches();
+		} catch (NullPointerException e) {
+			throw new InvalidUserException("Please enter valid input:  ");
+		}
+	}
+
+	public static void main(String[] args) throws InvalidUserException {
 		System.out.println("First Name ----");
 		System.out.println(firstNameValidater("Govind")); // proper
 		System.out.println(firstNameValidater("govind")); // not proper
@@ -50,17 +70,14 @@ public class User_Registration_Validater {
 		System.out.println(emailValidater("govindmaithil1234@gmail.co.in")); // proper
 		System.out.println(emailValidater("Govindmaithil1234@gmail.com")); // not proper
 		System.out.println(emailValidater("govindmaithil1234@gmail.com.in")); // not proper
-		
+
 		System.out.println("Phone number -----");
 		System.out.println(phoneValidater("91 8633444345")); // prpper
 		System.out.println(phoneValidater("912 8633444345")); // mot proper
-		
+
 		System.out.println("Password-----");
 		System.out.println(passwordValidater("Govinddma1#")); // proper
 		System.out.println(passwordValidater("govindma3#")); // not proper
-
-		
-		
 
 	}
 
